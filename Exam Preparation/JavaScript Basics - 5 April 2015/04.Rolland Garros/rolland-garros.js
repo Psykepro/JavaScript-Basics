@@ -3,7 +3,9 @@ function solve(input){
 
     for(index in input){
         var names = input[index].split(':')[0].trim();
-        var results = input[index].split(':')[1].trim().split(' ');
+        var results = input[index].split(':')[1].trim().split(' ').filter(function(elem){
+            return elem !== "";
+        });
         var patternForWhitespaces = /[\s]+/gi;
         var player1, player2;
 
@@ -101,7 +103,7 @@ function solve(input){
     console.log(JSON.stringify(players));
 }
 
-solve(['Novak Djokovic vs. Roger Federer : 6-3 6-3',
+solve(['Novak Djokovic vs. Roger Federer : 6-3    6-3     3-6',
     'Roger    Federer    vs.        Novak Djokovic    :         6-2 6-3',
     'Rafael Nadal vs. Andy Murray : 4-6 6-2 5-7',
     'Andy Murray vs. David     Ferrer : 6-4 7-6',
